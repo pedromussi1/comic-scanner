@@ -102,7 +102,7 @@ fly deploy
 
 <h3>Scanning a Comic Cover</h3>
 <p align="center">
-    <img src="https://i.imgur.com/XfzKJ6N.png" alt="Comic Scanner Interface" width="700">
+    <img src="https://i.imgur.com/D2Fejfv.gif" alt="Comic Scanner Interface" width="700">
 </p>
 <p>The main page allows users to upload or scan comic book covers, which are then analyzed and identified by the AI model.</p>
 
@@ -110,7 +110,7 @@ fly deploy
 
 <h3>Viewing Your Comic Collection</h3>
 <p align="center">
-    <img src="https://i.imgur.com/9eHwLgE.png" alt="Comic Collection Page" width="700">
+    <img src="https://i.imgur.com/OuwPnG9.gif" alt="Comic Collection Page" width="700">
 </p>
 <p>After adding comics, users can view their complete collection with titles, authors, and publication dates retrieved automatically.</p>
 
