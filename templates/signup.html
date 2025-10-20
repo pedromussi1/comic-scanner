@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Back to Scanner Button -->
+    <div style="margin: 20px 0;">
+        <a href="{{ url_for('index') }}" class="nav-button">← Back to Scanner</a>
+    </div>
+
+    <h1>Create an Account</h1>
+
+    <form method="POST" class="auth-form">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit" class="auth-submit">Sign Up</button>
+    </form>
+
+    <p style="margin-top: 10px; text-align:center;">
+        Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+    </p>
+
+    <!-- Flash messages -->
+<!-- Flash messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div>
+      {% for category, message in messages %}
+        {% if category == 'success' %}
+          <div class="flash-message flash-success">{{ message }}</div>
+        {% else %}
+          <div class="flash-message flash-error">{{ message }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Comic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div style="margin: 20px 0;">
+        <a href="{{ url_for('collection') }}" class="nav-button">← Back to Collection</a>
+    </div>
+
+    <h1>Edit Comic</h1>
+
+    <form method="POST">
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ comic.title }}" required><br><br>
+
+        <label>Authors:</label><br>
+        <input type="text" name="authors" value="{{ comic.authors }}"><br><br>
+
+        <label>Publisher:</label><br>
+        <input type="text" name="publisher" value="{{ comic.publisher }}"><br><br>
+
+        <label>Published Date:</label><br>
+        <input type="text" name="published_date" value="{{ comic.published_date }}"><br><br>
+
+        <label>Cover Image URL:</label><br>
+        <input type="text" name="cover_image" value="{{ comic.cover_image }}"><br><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+</body>
+</html>

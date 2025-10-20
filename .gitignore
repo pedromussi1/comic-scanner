@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+instance/
+.env
+*.sqlite3
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Flask / Deployment
+uploads/
+__pycache__/
+*.log
+*.pid
+
+# Fly.io
+.fly/
+.flyctl/
+fly.toml~
+
+# Model or data files (if any)
+*.h5
+*.keras
+*.pkl
+data/
+datasets/
+images/
+static/uploads/

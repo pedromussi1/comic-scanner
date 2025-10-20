@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic ISBN Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Auth Buttons -->
+    <div class="top-right">
+        {% if current_user.is_authenticated %}
+            <span>Welcome, {{ current_user.username }}!</span>
+            <a href="/logout" class="nav-button">Logout</a>
+        {% else %}
+            <a href="/login" class="nav-button">Login</a>
+            <a href="/signup" class="nav-button">Sign Up</a>
+        {% endif %}
+    </div>
+
+    <h1>Comic ISBN Scanner</h1>
+
+    <p style="text-align:center;">
+        <a href="/collection" class="collection-button">View Your Comic Collection</a>
+    </p>
+
+    <form id="scanForm" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required id="imageInput" style="display:none;">
+        <label for="imageInput" class="file-button">Select Comic Image</label>
+    </form>
+
+    <p id="scanningMsg">Scanning ISBN...</p>
+
+    {% if message %}
+        <p style="text-align:center; color:rgb(0, 255, 0);">{{ message }}</p>
+    {% endif %}
+
+    {% if scanned_comic %}
+        <h2>Scanned Comic</h2>
+        <div class="scanned-comic">
+            <div class="comic-card">
+                <p><strong>{{ scanned_comic.Title }}</strong></p>
+                <p>{{ scanned_comic.Authors }}</p>
+                <p>{{ scanned_comic['Published Date'] }}</p>
+
+                <!-- Cover Image clickable to Google Books -->
+                {% if scanned_comic['Cover Image'] %}
+                    {% if scanned_comic['Info Link'] %}
+                        <a href="{{ scanned_comic['Info Link'] }}" target="_blank">
+                            <img src="{{ scanned_comic['Cover Image'] }}" alt="Cover">
+                        </a>
+                    {% else %}
+                        <img src="{{ scanned_comic['Cover Image'] }}" alt="Cover">
+                    {% endif %}
+                {% else %}
+                    {% if scanned_comic['Info Link'] %}
+                        <a href="{{ scanned_comic['Info Link'] }}" target="_blank">
+                            <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="Cover">
+                        </a>
+                    {% else %}
+                        <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="Cover">
+                    {% endif %}
+                {% endif %}
+
+                <!-- Amazon Button -->
+                {% if scanned_comic.ISBN %}
+                    <p style="text-align:center; margin-top:10px;">
+                        <a href="https://www.amazon.com/s?k={{ scanned_comic.ISBN }}" target="_blank">
+                            <img src="{{ url_for('static', filename='amazon_logo.jpg') }}" alt="Buy on Amazon" style="height:40px;">
+                        </a>
+                    </p>
+                {% endif %}
+
+                <form method="post">
+                    <input type="hidden" name="add_isbn" value="{{ scanned_comic.ISBN }}">
+                    <input type="hidden" name="add_title" value="{{ scanned_comic.Title }}">
+                    <input type="hidden" name="add_authors" value="{{ scanned_comic.Authors }}">
+                    <input type="hidden" name="add_publisher" value="{{ scanned_comic.Publisher }}">
+                    <input type="hidden" name="add_published_date" value="{{ scanned_comic['Published Date'] }}">
+                    <input type="hidden" name="add_cover_image" value="{{ scanned_comic['Cover Image'] }}">
+                    <input type="hidden" name="add_info_link" value="{{ scanned_comic['Info Link'] }}">
+                    <button type="submit" class="collection-button">Add to Collection</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const scanningMsg = document.getElementById('scanningMsg');
+        scanningMsg.style.display = 'none';
+        imageInput.addEventListener('change', () => {
+            if (imageInput.files.length > 0) {
+                scanningMsg.style.display = 'block';
+                document.getElementById('scanForm').submit();
+            }
+        });
+    </script>
+</body>
+</html>
