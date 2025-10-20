@@ -1,7 +1,7 @@
 <h1 align="center">📚 Comic Book Scanner</h1>
 
 <p align="center">
-  <a href="https://comic-scanner.fly.dev/"><img src="https://i.imgur.com/NjX3Yfn.gif" alt="Comic Scanner Demo" width="800"></a>
+  <a href="https://youtu.be/Wwa3Uohue_4"><img src="https://i.imgur.com/RVu12mW.gif" alt="Comic Scanner Demo" width="800"></a>
 </p>
 
 <p align="center">A Flask-based web application that identifies comic book covers using image recognition and integrates with the Google Books API to fetch detailed comic information such as title, author, and publication date.</p>
