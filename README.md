@@ -9,7 +9,7 @@
 <h3>Try the live app here: <a href="https://comic-scanner.fly.dev/">https://comic-scanner.fly.dev/</a></h3>
 
 <h2>Description</h2>
-<p>The **Comic Book Scanner** is an AI-powered web application that allows users to upload or capture images of comic book covers. The system analyzes the image using a trained deep learning model and matches it to the most similar comic from a curated collection. Once identified, it retrieves additional details like title, author, publication date, and cover art via the **Google Books API**. Users can then add comics to their personal online collection and browse them later.This project demonstrates the fusion of **computer vision**, **machine learning**, and **cloud deployment** in building an intelligent and visually interactive web platform.</p>
+<p>The Comic Book Scanner allows users to upload or capture images of comic book covers. Using a trained deep learning model, the app recognizes the comic and retrieves details such as the title, author, and release date from the Google Books API. Users can then add these comics to their personal collection stored in a PostgreSQL database and view them anytime. This project combines computer vision, deep learning, and cloud deployment to create a smart, interactive tool for comic enthusiasts.</p>
 
 
 
