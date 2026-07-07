@@ -4,6 +4,16 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-07-07
+
+### Added
+- Modern, responsive, dark-mode-aware UI matching the other apps: a shared base template
+  with nav, a drag-and-drop scan page with image preview + loading state, a card-grid
+  collection with search/sort/edit/delete, and clean login/signup pages.
+
+### Removed
+- Unused `templates/edit_comic.html` (editing happens via the collection modal).
+
 ## [2.0.2] - 2026-07-07
 
 ### Changed
@@ -37,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (cover recognition still works; barcode scanning is skipped gracefully).
 - Added a `pytest` suite.
 
+[2.1.0]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.1.0
 [2.0.2]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.0.2
 [2.0.1]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.0.1
 [2.0.0]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.0.0
