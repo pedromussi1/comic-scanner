@@ -21,8 +21,12 @@ RUN pip install -r requirements.txt
 # Copy app code
 COPY . .
 
-# Expose port
+# Writable dirs for the CLIP model download (cover recognition) and runtime uploads.
+ENV HF_HOME=/tmp/hf
+RUN mkdir -p uploads /tmp/hf && chmod -R 777 uploads /tmp/hf
+
 EXPOSE 8000
 
-# Run Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
+# 2 workers keeps memory reasonable (each loads its own CLIP model on first cover scan);
+# long timeout covers the one-time model download.
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8000", "--timeout", "300", "app:app"]
