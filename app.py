@@ -1,9 +1,21 @@
 import os
+import secrets
+
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-from pyzbar.pyzbar import decode
 from PIL import Image
 import requests
+
+# pyzbar needs the native zbar library (libzbar0, installed in the Dockerfile). Guard the
+# import so the app still runs where zbar is absent (e.g. a bare Windows dev box) — barcode
+# scanning is simply disabled there, while cover recognition keeps working.
+try:
+    from pyzbar.pyzbar import decode as _zbar_decode
+    _ZBAR_AVAILABLE = True
+except Exception:  # ImportError or OSError (missing native lib)
+    _ZBAR_AVAILABLE = False
+
+from comicid import CoverRecognizer
 
 from extensions import db
 from database import (
@@ -17,7 +29,23 @@ load_dotenv()
 
 # -------------------- Flask App --------------------
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "supersecretkey")
+# Never ship a predictable default secret. Use SECRET_KEY from the environment; if unset,
+# generate an ephemeral one (fine for local dev — sessions reset on restart) and warn.
+app.secret_key = os.getenv("SECRET_KEY")
+if not app.secret_key:
+    app.secret_key = secrets.token_hex(32)
+    print("WARNING: SECRET_KEY not set — using an ephemeral key. Set SECRET_KEY in production.")
+
+# Cover recognizer (CLIP + FAISS). Built lazily so the CLIP model only loads on first
+# barcode-less scan, not at startup.
+_recognizer: CoverRecognizer | None = None
+
+
+def get_recognizer() -> CoverRecognizer:
+    global _recognizer
+    if _recognizer is None:
+        _recognizer = CoverRecognizer()
+    return _recognizer
 
 # -------------------- Database Setup --------------------
 
@@ -69,8 +97,9 @@ def load_user(user_id):
 
 # -------------------- Helper Functions --------------------
 def detect_isbn(image_path):
-    img = Image.open(image_path)
-    decoded_objects = decode(img)
+    if not _ZBAR_AVAILABLE:
+        return None
+    decoded_objects = _zbar_decode(Image.open(image_path))
     if decoded_objects:
         return decoded_objects[0].data.decode("utf-8")
     return None
@@ -87,9 +116,35 @@ def query_google_books(isbn):
             "Published Date": book.get("publishedDate", "Unknown"),
             "Cover Image": book.get("imageLinks", {}).get("thumbnail", ""),
             "ISBN": isbn,
-            "Info Link": book.get("infoLink", "")
+            "Info Link": book.get("infoLink", ""),
+            "Source": "barcode",
+            "Confidence": None,
         }
     return None
+
+def recognize_cover(image_path):
+    """Identify a comic by its cover (CLIP + FAISS) when no barcode is present.
+
+    Returns a scanned-comic dict shaped like query_google_books, or None if there is no
+    confident match. The Open Library id is reused as the collection identifier so the
+    (user, isbn) uniqueness constraint still dedupes cover-added comics.
+    """
+    matches = get_recognizer().identify(image_path, k=1)
+    if not matches or not matches[0].confident:
+        return None
+    best = matches[0]
+    ol_id = best.source_url.rstrip("/").split("/")[-1] if best.source_url else best.title
+    return {
+        "Title": best.title,
+        "Authors": best.author,
+        "Publisher": "Unknown",
+        "Published Date": "Unknown",
+        "Cover Image": best.cover_image,
+        "ISBN": ol_id,                 # reuse the isbn column as a stable identifier
+        "Info Link": best.source_url,
+        "Source": "cover",
+        "Confidence": round(best.score, 2),
+    }
 
 # -------------------- Routes --------------------
 @app.route("/", methods=["GET", "POST"])
@@ -110,7 +165,10 @@ def index():
                     if not scanned_comic:
                         message = f"Book with ISBN {isbn} not found"
                 else:
-                    message = "No barcode detected in the image"
+                    # No barcode — fall back to CLIP cover recognition.
+                    scanned_comic = recognize_cover(file_path)
+                    if not scanned_comic:
+                        message = "No barcode or confident cover match found. Try a clearer photo."
 
         # --- Add comic to collection ---
         elif "add_isbn" in request.form:

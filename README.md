@@ -4,114 +4,70 @@
   <a href="https://youtu.be/Wwa3Uohue_4"><img src="https://i.imgur.com/RVu12mW.gif" alt="Comic Scanner Demo" width="800"></a>
 </p>
 
-<p align="center">A Flask-based web application that identifies comic book covers using image recognition and integrates with the Google Books API to fetch detailed comic information such as title, author, and publication date.</p>
+<p align="center">A full-stack Flask app to identify comics and build a personal collection — by <b>barcode</b> when there is one, and by <b>cover image</b> when there isn't.</p>
 
-<h3>Try the live app here: <a href="https://comic-scanner.fly.dev/">https://comic-scanner.fly.dev/</a></h3>
+<h3>Live app: <a href="https://comic-scanner.fly.dev/">https://comic-scanner.fly.dev/</a></h3>
 
-<h2>Description</h2>
-<p>The Comic Book Scanner allows users to upload or capture images of comic book covers. Using a trained deep learning model, the app recognizes the comic and retrieves details such as the title, author, and release date from the Google Books API. Users can then add these comics to their personal collection stored in a PostgreSQL database and view them anytime. This project combines computer vision, deep learning, and cloud deployment to create a smart, interactive tool for comic enthusiasts.</p>
+## What it does
 
+Upload a photo of a comic and the app tries two ways to identify it:
 
+1. **Barcode** — if the image has an ISBN barcode, it's decoded with `pyzbar` and looked up
+   via the **Google Books API** (title, author, publisher, date, cover).
+2. **Cover recognition** — if there's no barcode, the cover is embedded with a **CLIP** vision
+   model and matched against a **FAISS** index of reference covers (from Open Library). This
+   is the same `comicid` engine used by
+   [comic-recognizer](https://github.com/pedromussi1/comic-recognizer).
 
-<h2>Languages and Utilities Used</h2>
-<ul>
-    <li><b>Python:</b> Core programming language used for backend logic and AI model integration.</li>
-    <li><b>Flask:</b> Lightweight web framework that powers the web server and routes.</li>
-    <li><b>TensorFlow / Keras:</b> Deep learning framework used for comic book cover recognition.</li>
-    <li><b>OpenCV / NumPy:</b> Used for image processing and numerical computation.</li>
-    <li><b>PostgreSQL:</b> Cloud-hosted database for managing user comic collections.</li>
-    <li><b>HTML / CSS / JavaScript:</b> Used for creating the front-end interface.</li>
-    <li><b>Fly.io:</b> Cloud platform for deploying and hosting the web application.</li>
-    <li><b>Google Books API:</b> Provides detailed comic metadata based on search queries.</li>
-</ul>
+Identified comics can be added to a personal collection (per-user accounts, stored in a
+database) and browsed later.
 
-<h2>Environments Used</h2>
-<ul>
-    <li><b>Windows 11</b></li>
-    <li><b>Visual Studio Code</b></li>
-</ul>
+## Honest note on this rewrite
 
-<h2>Installation</h2>
-<ol>
-    <li><strong>Clone the Repository:</strong>
-        <pre><code>git clone https://github.com/YOUR_USERNAME/comic_book_scanner.git
-cd comic_book_scanner</code></pre>
-    </li>
-    <li><strong>Create and Activate a Virtual Environment:</strong>
-        <pre><code>python -m venv .venv
-source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`</code></pre>
-    </li>
-    <li><strong>Install Dependencies:</strong>
-        <pre><code>pip install -r requirements.txt</code></pre>
-    </li>
-    <li><strong>Set Environment Variables:</strong>
-        <p>Create a <code>.env</code> file in the project root with the following variables:</p>
-        <pre><code>DATABASE_URL=your_postgresql_connection_string
-GOOGLE_BOOKS_API_KEY=your_api_key_here
-FLASK_APP=app.py</code></pre>
-    </li>
-    <li><strong>Run the Application:</strong>
-        <pre><code>flask run</code></pre>
-        The application will open automatically at <b>http://127.0.0.1:5000</b>
-    </li>
-</ol>
+The previous README described a "trained deep-learning model (TensorFlow/Keras)" for cover
+recognition — but the code never had one: recognition was **barcode-only**, and the
+`requirements.txt` carried unused TensorFlow/pandas/scikit-learn (as a malformed UTF-16
+file). This version **delivers the cover recognition it always claimed** (CLIP + FAISS, no
+training required), trims the dependencies to what's actually used, and hardens the session
+secret. No fabricated model, no dead weight.
 
+## Stack
 
-<h2>Usage</h2>
-<ol>
-    <li>Open the web app in your browser.</li>
-    <li>Upload or capture a comic book cover image.</li>
-    <li>The app analyzes the image using the trained AI model.</li>
-    <li>Google Books API fetches detailed information about the comic.</li>
-    <li>Click <b>Add to Collection</b> to save the comic in your personal collection.</li>
-    <li>Visit the <b>Collection</b> page to browse all your saved comics.</li>
-</ol>
+- **Flask** + **Flask-Login** (auth) + **Flask-SQLAlchemy** (SQLite locally, PostgreSQL in prod)
+- **pyzbar** (barcode) + **Google Books API**
+- **CLIP** (`sentence-transformers`) + **FAISS** (cover recognition)
+- **Docker** + **Fly.io** deployment
 
-<h2>Code Structure</h2>
-<ul>
-    <li><b>app.py:</b> Main Flask application handling routes and integration.</li>
-    <li><b>database.py:</b> Manages PostgreSQL connection and comic collection storage.</li>
-    <li><b>model.py:</b> Defines and loads the trained deep learning model for comic recognition.</li>
-    <li><b>preprocess.py:</b> Handles image preprocessing and resizing functions.</li>
-    <li><b>predict.py:</b> Contains the logic for generating predictions from input images.</li>
-    <li><b>utils.py:</b> Helper functions for API calls and data handling.</li>
-    <li><b>templates/:</b> HTML templates (index.html, collection.html, edit_button.html).</li>
-    <li><b>static/:</b> CSS, JS, and image assets for the front end.</li>
-</ul>
+## Run locally
 
+```bash
+python -m venv .venv
+.venv\Scripts\activate            # (source .venv/bin/activate on macOS/Linux)
+pip install -r requirements.txt   # includes torch/CLIP — sizeable first install
+python app.py                     # http://127.0.0.1:8000/
+```
 
-<h2>Known Issues</h2>
-<ul>
-    <li>Low-quality or partially visible comic covers may cause incorrect matches.</li>
-    <li>Some older or rare comics may not have metadata available through the Google Books API.</li>
-    <li>Large image uploads can slow down recognition performance slightly.</li>
-</ul>
+Notes:
+- Barcode scanning needs the native **zbar** library. It's installed in the Docker image
+  (`libzbar0`); on a bare dev box without it, the app still runs and cover recognition works
+  (barcode is skipped gracefully).
+- Set `SECRET_KEY` (and `DATABASE_URL` for PostgreSQL) in a `.env` file; without `SECRET_KEY`
+  an ephemeral one is generated with a warning.
 
-<h2>Contributing</h2>
-<p>Contributions are welcome! Feel free to fork this repository, make improvements, and open a pull request. For major changes, please open an issue first to discuss your ideas.</p>
+## Layout
 
-<h2>Deployment</h2>
-<p>The Comic Book Scanner is deployed on <b>Fly.io</b>, which builds and hosts the application automatically from the repository using a Docker container. To deploy your own instance:</p>
-<pre><code>fly launch
-fly deploy
-</code></pre>
+```
+app.py            routes: scan (barcode → cover fallback), auth, collection
+database.py       SQLAlchemy models + queries
+comicid/          shared CLIP + FAISS cover-recognition engine
+data/index/       committed FAISS reference index
+templates/        pages
+tests/            pytest suite
+Dockerfile, fly.toml   deployment
+```
 
-<p>Fly.io automatically builds the container and deploys the Flask web app to a public URL.</p>
+## Tests
 
-<h3>Example Screens</h3>
-
-<h3>Scanning a Comic Cover</h3>
-<p align="center">
-    <img src="https://i.imgur.com/D2Fejfv.gif" alt="Comic Scanner Interface" width="700">
-</p>
-<p>The main page allows users to upload or scan comic book covers, which are then analyzed and identified by the AI model.</p>
-
-<hr>
-
-<h3>Viewing Your Comic Collection</h3>
-<p align="center">
-    <img src="https://i.imgur.com/OuwPnG9.gif" alt="Comic Collection Page" width="700">
-</p>
-<p>After adding comics, users can view their complete collection with titles, authors, and publication dates retrieved automatically.</p>
-
-
+```bash
+python -m pytest -q
+```

@@ -34,7 +34,9 @@ fly.toml~
 *.h5
 *.keras
 *.pkl
-data/
+# Ignore data/ EXCEPT the committed cover index the app needs to run
+data/*
+!data/index/
 datasets/
 images/
 static/uploads/
