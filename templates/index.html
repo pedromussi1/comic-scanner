@@ -43,6 +43,9 @@
                 <p><strong>{{ scanned_comic.Title }}</strong></p>
                 <p>{{ scanned_comic.Authors }}</p>
                 <p>{{ scanned_comic['Published Date'] }}</p>
+                {% if scanned_comic.Source == 'cover' %}
+                    <p style="color:#7c3aed;">🦸 Identified by cover · {{ scanned_comic.Confidence }} match</p>
+                {% endif %}
 
                 <!-- Cover Image clickable to Google Books -->
                 {% if scanned_comic['Cover Image'] %}
@@ -63,8 +66,8 @@
                     {% endif %}
                 {% endif %}
 
-                <!-- Amazon Button -->
-                {% if scanned_comic.ISBN %}
+                <!-- Amazon Button (real ISBNs only) -->
+                {% if scanned_comic.Source == 'barcode' and scanned_comic.ISBN %}
                     <p style="text-align:center; margin-top:10px;">
                         <a href="https://www.amazon.com/s?k={{ scanned_comic.ISBN }}" target="_blank">
                             <img src="{{ url_for('static', filename='amazon_logo.jpg') }}" alt="Buy on Amazon" style="height:40px;">
