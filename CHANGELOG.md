@@ -4,6 +4,17 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-07-07
+
+### Added
+- **Live hosted demo** on Hugging Face Spaces:
+  https://huggingface.co/spaces/Zao0531/comic-scanner (with a persistent Neon Postgres for
+  accounts + collections). Auto-syncs from `main` via a GitHub Action.
+
+### Fixed
+- Serverless-Postgres connection drops (Neon): enable SQLAlchemy `pool_pre_ping` +
+  `pool_recycle` so dropped idle connections are revived instead of erroring.
+
 ## [2.1.0] - 2026-07-07
 
 ### Added
@@ -47,6 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (cover recognition still works; barcode scanning is skipped gracefully).
 - Added a `pytest` suite.
 
+[2.2.0]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.2.0
 [2.1.0]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.1.0
 [2.0.2]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.0.2
 [2.0.1]: https://github.com/pedromussi1/comic-scanner/releases/tag/v2.0.1

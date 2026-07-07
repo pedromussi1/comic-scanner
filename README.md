@@ -6,7 +6,7 @@
 
 <p align="center">A full-stack Flask app to identify comics and build a personal collection — by <b>barcode</b> when there is one, and by <b>cover image</b> when there isn't.</p>
 
-<h3>Live app: <a href="https://comic-scanner.fly.dev/">https://comic-scanner.fly.dev/</a></h3>
+<h3>🚀 Live app: <a href="https://huggingface.co/spaces/Zao0531/comic-scanner">huggingface.co/spaces/Zao0531/comic-scanner</a></h3>
 
 ## What it does
 

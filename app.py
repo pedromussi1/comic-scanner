@@ -64,6 +64,9 @@ elif DATABASE_URL.startswith("postgres://"):
 
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# Serverless Postgres (e.g. Neon) drops idle connections; pre-ping revives dead pooled
+# connections and recycle retires them before the server times them out.
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"pool_pre_ping": True, "pool_recycle": 300}
 
 # Initialize SQLAlchemy
 db.init_app(app)
