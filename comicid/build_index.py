@@ -30,6 +30,7 @@ _COVER_URL = "https://covers.openlibrary.org/b/id/{cid}-{size}.jpg"
 # Well-known graphic novels Open Library reliably has covers for. Author included to
 # disambiguate the search. Add your own comics here (or via --comics) and rebuild.
 COMICS = [
+    # --- classic graphic novels (demo set) ---
     ("Watchmen", "Alan Moore"),
     ("V for Vendetta", "Alan Moore"),
     ("Batman The Killing Joke", "Alan Moore"),
@@ -37,23 +38,49 @@ COMICS = [
     ("The Dark Knight Returns", "Frank Miller"),
     ("Batman The Long Halloween", "Jeph Loeb"),
     ("Batman Hush", "Jeph Loeb"),
+    ("Batman Dark Victory", "Jeph Loeb"),
     ("The Sandman", "Neil Gaiman"),
     ("Maus", "Art Spiegelman"),
     ("Persepolis", "Marjane Satrapi"),
-    ("Saga Volume 1", "Brian K. Vaughan"),
     ("Y The Last Man", "Brian K. Vaughan"),
     ("Sin City", "Frank Miller"),
     ("Fun Home", "Alison Bechdel"),
     ("Kingdom Come", "Mark Waid"),
     ("Superman Red Son", "Mark Millar"),
-    ("Daredevil Born Again", "Frank Miller"),
-    ("House of X", "Jonathan Hickman"),
-    ("New X-Men", "Grant Morrison"),
     ("Blankets", "Craig Thompson"),
     ("Bone", "Jeff Smith"),
     ("Preacher", "Garth Ennis"),
     ("Hellboy Seed of Destruction", "Mike Mignola"),
     ("Scott Pilgrim", "Bryan Lee O'Malley"),
+    # --- X-Men / mutants ---
+    ("House of X Powers of X", "Jonathan Hickman"),
+    ("New X-Men", "Grant Morrison"),
+    ("X-Men Epic Collection Second Genesis", "Chris Claremont"),
+    ("X-Men Epic Collection Proteus", "Chris Claremont"),
+    ("X-Men Epic Collection The Fate of the Phoenix", "Chris Claremont"),
+    ("Astonishing X-Men Gifted", "Joss Whedon"),
+    ("Dawn of X", "Jonathan Hickman"),
+    # --- Marvel ---
+    ("Fantastic Four by Jonathan Hickman", "Jonathan Hickman"),
+    ("Fantastic Four", "Mark Waid"),
+    ("Avengers by Jonathan Hickman Omnibus", "Jonathan Hickman"),
+    ("Thor by Jason Aaron", "Jason Aaron"),
+    ("Venom", "Donny Cates"),
+    ("Daredevil Born Again", "Frank Miller"),
+    ("Daredevil The Man Without Fear", "Frank Miller"),
+    ("Daredevil by Bendis", "Brian Michael Bendis"),
+    ("The Infinity Gauntlet", "Jim Starlin"),
+    ("Hawkeye", "Matt Fraction"),
+    # --- DC ---
+    ("Nightwing Leaping into the Light", "Tom Taylor"),
+    ("Nightwing Get Grayson", "Chuck Dixon"),
+    ("Nightwing The Battle for Bludhaven's Heart", "Tom Taylor"),
+    ("Nightwing The Leap", "Tom Taylor"),
+    ("Doomsday Clock", "Geoff Johns"),
+    ("Rorschach", "Tom King"),
+    # --- Image / other ---
+    ("Invincible Compendium", "Robert Kirkman"),
+    ("Simpsons Treehouse of Horror Ominous Omnibus", "Matt Groening"),
 ]
 
 
