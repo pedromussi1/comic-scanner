@@ -132,6 +132,18 @@
     "source_url": "https://openlibrary.org/works/OL16528449W"
   },
   {
+    "title": "Batman Dark Victory",
+    "author": "Jeph Loeb",
+    "cover_image": "https://covers.openlibrary.org/b/id/798732-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL818813W"
+  },
+  {
+    "title": "Batman Dark Victory",
+    "author": "Jeph Loeb",
+    "cover_image": "https://covers.openlibrary.org/b/id/7416661-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL16707355W"
+  },
+  {
     "title": "The Sandman",
     "author": "Neil Gaiman",
     "cover_image": "https://covers.openlibrary.org/b/id/9150699-M.jpg",
@@ -312,36 +324,6 @@
     "source_url": "https://openlibrary.org/works/OL39494789W"
   },
   {
-    "title": "Daredevil Born Again",
-    "author": "David Mazzucchelli",
-    "cover_image": "https://covers.openlibrary.org/b/id/7591097-M.jpg",
-    "source_url": "https://openlibrary.org/works/OL17444413W"
-  },
-  {
-    "title": "Daredevil Born Again",
-    "author": "Frank Miller",
-    "cover_image": "https://covers.openlibrary.org/b/id/535417-M.jpg",
-    "source_url": "https://openlibrary.org/works/OL253473W"
-  },
-  {
-    "title": "Daredevil Born Again",
-    "author": "Frank Miller",
-    "cover_image": "https://covers.openlibrary.org/b/id/661349-M.jpg",
-    "source_url": "https://openlibrary.org/works/OL15016236W"
-  },
-  {
-    "title": "House of X",
-    "author": "Pepe Larraz",
-    "cover_image": "https://covers.openlibrary.org/b/id/9409849-M.jpg",
-    "source_url": "https://openlibrary.org/works/OL20725470W"
-  },
-  {
-    "title": "New X-Men",
-    "author": "Ethan van Sciver",
-    "cover_image": "https://covers.openlibrary.org/b/id/6762539-M.jpg",
-    "source_url": "https://openlibrary.org/works/OL15741892W"
-  },
-  {
     "title": "Blankets",
     "author": "Craig Thompson",
     "cover_image": "https://covers.openlibrary.org/b/id/940324-M.jpg",
@@ -448,5 +430,299 @@
     "author": "Bryan Lee O'Malley",
     "cover_image": "https://covers.openlibrary.org/b/id/2126595-M.jpg",
     "source_url": "https://openlibrary.org/works/OL5859253W"
+  },
+  {
+    "title": "House of X Powers of X",
+    "author": "Pepe Larraz",
+    "cover_image": "https://covers.openlibrary.org/b/id/9409849-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20725470W"
+  },
+  {
+    "title": "New X-Men",
+    "author": "Ethan van Sciver",
+    "cover_image": "https://covers.openlibrary.org/b/id/6762539-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL15741892W"
+  },
+  {
+    "title": "Dawn of X",
+    "author": "Leinil Francis Yu",
+    "cover_image": "https://covers.openlibrary.org/b/id/11241409-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL24584226W"
+  },
+  {
+    "title": "Dawn of X",
+    "author": "Leinil Francis Yu",
+    "cover_image": "https://covers.openlibrary.org/b/id/10460982-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL22443621W"
+  },
+  {
+    "title": "Dawn of X",
+    "author": "Leinil Francis Yu",
+    "cover_image": "https://covers.openlibrary.org/b/id/10460983-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL22443622W"
+  },
+  {
+    "title": "Dawn of X",
+    "author": "Francis Leinil Yu",
+    "cover_image": "https://covers.openlibrary.org/b/id/10460986-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL22443625W"
+  },
+  {
+    "title": "Fantastic Four by Jonathan Hickman",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/13502345-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL27139093W"
+  },
+  {
+    "title": "Fantastic Four by Jonathan Hickman",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8812887-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20166943W"
+  },
+  {
+    "title": "Fantastic Four by Jonathan Hickman",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8459858-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL19348005W"
+  },
+  {
+    "title": "Fantastic Four by Jonathan Hickman",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8459824-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL19347979W"
+  },
+  {
+    "title": "Fantastic Four",
+    "author": "Mark Waid",
+    "cover_image": "https://covers.openlibrary.org/b/id/4724932-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL1646674W"
+  },
+  {
+    "title": "Fantastic Four",
+    "author": "Mark Waid",
+    "cover_image": "https://covers.openlibrary.org/b/id/8809990-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20164074W"
+  },
+  {
+    "title": "Fantastic Four",
+    "author": "Mark Waid",
+    "cover_image": "https://covers.openlibrary.org/b/id/10887253-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL24360206W"
+  },
+  {
+    "title": "Fantastic Four",
+    "author": "Mark Waid",
+    "cover_image": "https://covers.openlibrary.org/b/id/4724931-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL15083756W"
+  },
+  {
+    "title": "Avengers by Jonathan Hickman Omnibus",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8861562-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20210656W"
+  },
+  {
+    "title": "Avengers by Jonathan Hickman Omnibus",
+    "author": "Jonathan Hickman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8812696-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20166753W"
+  },
+  {
+    "title": "Thor by Jason Aaron",
+    "author": "Jason Aaron",
+    "cover_image": "https://covers.openlibrary.org/b/id/8897235-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20242244W"
+  },
+  {
+    "title": "Thor by Jason Aaron",
+    "author": "Jason Aaron",
+    "cover_image": "https://covers.openlibrary.org/b/id/8797012-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20152383W"
+  },
+  {
+    "title": "Thor by Jason Aaron",
+    "author": "Jason Aaron",
+    "cover_image": "https://covers.openlibrary.org/b/id/12429654-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL25486369W"
+  },
+  {
+    "title": "Thor by Jason Aaron",
+    "author": "Jason Aaron",
+    "cover_image": "https://covers.openlibrary.org/b/id/8861847-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20210889W"
+  },
+  {
+    "title": "Venom",
+    "author": "Donny Cates",
+    "cover_image": "https://covers.openlibrary.org/b/id/8813263-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20167293W"
+  },
+  {
+    "title": "Venom",
+    "author": "Marvel Comics",
+    "cover_image": "https://covers.openlibrary.org/b/id/12437290-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20745118W"
+  },
+  {
+    "title": "Venom",
+    "author": "Donny Cates",
+    "cover_image": "https://covers.openlibrary.org/b/id/8796920-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20152310W"
+  },
+  {
+    "title": "Venom",
+    "author": "Donny Cates",
+    "cover_image": "https://covers.openlibrary.org/b/id/13714639-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL21675162W"
+  },
+  {
+    "title": "Daredevil Born Again",
+    "author": "David Mazzucchelli",
+    "cover_image": "https://covers.openlibrary.org/b/id/7591097-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17444413W"
+  },
+  {
+    "title": "Daredevil Born Again",
+    "author": "Frank Miller",
+    "cover_image": "https://covers.openlibrary.org/b/id/535417-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL253473W"
+  },
+  {
+    "title": "Daredevil Born Again",
+    "author": "Frank Miller",
+    "cover_image": "https://covers.openlibrary.org/b/id/661349-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL15016236W"
+  },
+  {
+    "title": "Daredevil The Man Without Fear",
+    "author": "Frank Miller",
+    "cover_image": "https://covers.openlibrary.org/b/id/7474185-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17385636W"
+  },
+  {
+    "title": "Daredevil The Man Without Fear",
+    "author": "Frank Miller",
+    "cover_image": "https://covers.openlibrary.org/b/id/13731458-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL21707920W"
+  },
+  {
+    "title": "Daredevil by Bendis",
+    "author": "Brian Michael Bendis",
+    "cover_image": "https://covers.openlibrary.org/b/id/535700-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL5799384W"
+  },
+  {
+    "title": "Daredevil by Bendis",
+    "author": "Brian Michael Bendis",
+    "cover_image": "https://covers.openlibrary.org/b/id/11209875-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20744856W"
+  },
+  {
+    "title": "Daredevil by Bendis",
+    "author": "Alex Maleev",
+    "cover_image": "https://covers.openlibrary.org/b/id/7524090-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17410673W"
+  },
+  {
+    "title": "Daredevil by Bendis",
+    "author": "Alex Maleev",
+    "cover_image": "https://covers.openlibrary.org/b/id/7671778-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17484985W"
+  },
+  {
+    "title": "The Infinity Gauntlet",
+    "author": "Jim Starlin",
+    "cover_image": "https://covers.openlibrary.org/b/id/661375-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL3038479W"
+  },
+  {
+    "title": "Hawkeye",
+    "author": "Matt Fraction",
+    "cover_image": "https://covers.openlibrary.org/b/id/12178618-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL19990439W"
+  },
+  {
+    "title": "Hawkeye",
+    "author": "Matt Fraction",
+    "cover_image": "https://covers.openlibrary.org/b/id/7855585-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17577307W"
+  },
+  {
+    "title": "Hawkeye",
+    "author": "Matt Fraction",
+    "cover_image": "https://covers.openlibrary.org/b/id/12680602-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL19966345W"
+  },
+  {
+    "title": "Hawkeye",
+    "author": "Matt Fraction",
+    "cover_image": "https://covers.openlibrary.org/b/id/12683488-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL19985562W"
+  },
+  {
+    "title": "Nightwing Leaping into the Light",
+    "author": "Tom Taylor",
+    "cover_image": "https://covers.openlibrary.org/b/id/12649586-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL25912334W"
+  },
+  {
+    "title": "Doomsday Clock",
+    "author": "Geoff Johns",
+    "cover_image": "https://covers.openlibrary.org/b/id/12649869-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL21213343W"
+  },
+  {
+    "title": "Doomsday Clock",
+    "author": "Geoff Johns",
+    "cover_image": "https://covers.openlibrary.org/b/id/8982028-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20320510W"
+  },
+  {
+    "title": "Rorschach",
+    "author": "Tom King",
+    "cover_image": "https://covers.openlibrary.org/b/id/12649581-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL25489686W"
+  },
+  {
+    "title": "Rorschach",
+    "author": "Tom King",
+    "cover_image": "https://covers.openlibrary.org/b/id/13914258-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL34966699W"
+  },
+  {
+    "title": "Rorschach",
+    "author": "Tom King",
+    "cover_image": "https://covers.openlibrary.org/b/id/13914259-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL34966700W"
+  },
+  {
+    "title": "Rorschach",
+    "author": "Tom King",
+    "cover_image": "https://covers.openlibrary.org/b/id/13914260-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL34966701W"
+  },
+  {
+    "title": "Invincible Compendium",
+    "author": "Robert Kirkman",
+    "cover_image": "https://covers.openlibrary.org/b/id/7735816-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL17517052W"
+  },
+  {
+    "title": "Invincible Compendium",
+    "author": "Robert Kirkman",
+    "cover_image": "https://covers.openlibrary.org/b/id/9030048-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20363419W"
+  },
+  {
+    "title": "Invincible Compendium",
+    "author": "Robert Kirkman",
+    "cover_image": "https://covers.openlibrary.org/b/id/8809738-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL20163818W"
+  },
+  {
+    "title": "Invincible Compendium",
+    "author": "Robert Kirkman",
+    "cover_image": "https://covers.openlibrary.org/b/id/13962572-M.jpg",
+    "source_url": "https://openlibrary.org/works/OL31126521W"
   }
 ]
